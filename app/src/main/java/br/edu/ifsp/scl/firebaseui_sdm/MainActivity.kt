@@ -43,6 +43,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         navView.setNavigationItemSelectedListener(this)
 
+        paginaLogin()
+
+
+    }
+
+    fun paginaLogin(){
         // Create and launch sign-in intent
         startActivityForResult(AuthUI.getInstance()
             .createSignInIntentBuilder()
@@ -75,7 +81,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         AuthUI.getInstance()
             .signOut(this)
             .addOnCompleteListener{
-
+                paginaLogin()
             }
 
     }
@@ -105,7 +111,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.itemMenuSair -> {
+                signOut()
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

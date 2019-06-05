@@ -18,7 +18,8 @@
     <string name="facebook_application_id" translatable="false">YOUR_APP_ID</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>
     <!-- Twitter consumer key and secret -->
-    <string name="twitter_consumer_key" translatable="false">YOUR_CONSUMER_KEY</string>
-    <string name="twitter_consumer_secret" translatable="false">YOUR_CONSUMER_SECRET</string>
+    <string name="twitter_consumer_key" translatable="false">dK2hpxt6V37WBrWpUxPBn6kSA</string>
+    <string name="twitter_consumer_secret" translatable="false">udAzAFZIGRoic8YyI1ua7HM4P0QjkUD7HZndaF0rFcwzohPls7</string>
+    <string name="sair">Sair</string>
 
 </resources>
