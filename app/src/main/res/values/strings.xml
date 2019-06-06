@@ -15,11 +15,23 @@
     <string name="menu_send">Send</string>
 
     <!-- Facebook application ID and custom URL scheme (app ID prefixed by 'fb'). -->
-    <string name="facebook_application_id" translatable="false">YOUR_APP_ID</string>
-    <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>
+    <string name="facebook_application_id" translatable="false">606900356488776</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb606900356488776</string>
+    <!--<string name="facebook_app_id">606900356488776</string> <string name="fb_login_protocol_scheme">fb606900356488776</string>-->
+
+
     <!-- Twitter consumer key and secret -->
     <string name="twitter_consumer_key" translatable="false">dK2hpxt6V37WBrWpUxPBn6kSA</string>
     <string name="twitter_consumer_secret" translatable="false">udAzAFZIGRoic8YyI1ua7HM4P0QjkUD7HZndaF0rFcwzohPls7</string>
     <string name="sair">Sair</string>
 
+    <!--GITHUB-->
+    <string name="github_client_id" translatable="false">1706e3d497da4fe53ec8</string>
+    <string name="github_client_secret" translatable="false">799b94bf49bb0bd88b14a6a5d6137ea0e70f6419</string>
+
+    <!--Adding your Firebase web host-->
+    <string name="firebase_web_host" translatable="false">https://fir-uisdm.web.app</string>
+    <string name="sign_in_cancelled">Login Cancelled</string>
+    <string name="no_internet_connection">Internet Connection Error</string>
+    <string name="unknown_error">Unknown Error</string>
 </resources>

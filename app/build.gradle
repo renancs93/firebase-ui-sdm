@@ -35,14 +35,20 @@ dependencies {
     //FirebaseCore, FirebaseUi, FirebaseAuth
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
-    implementation 'com.google.firebase:firebase-auth:16.2.0'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
 
     // Required only if Facebook login support is required
     // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
     implementation 'com.facebook.android:facebook-android-sdk:5.0.0'
 
+
     // Required only if Twitter login support is required
     // Find the latest Twitter SDK releases here: https://goo.gl/E5wZvQ
     implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+
+    //implementation 'com.google.android.gms:play-services-auth:16.0.1'
+
+    //Biblioteca assistente para solictar permissões ao usuário
+    implementation 'ru.superjob:kotlin-permissions:1.0.3'
 }
 apply plugin: 'com.google.gms.google-services'
