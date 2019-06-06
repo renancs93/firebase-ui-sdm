@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ID"
+            android:textSize="20sp"
     />
 
     <TextView
@@ -24,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="E-mail"
+            android:textSize="20sp"
             />
 
     <TextView
@@ -31,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome"
+            android:textSize="20sp"
             />
 
     <TextView
@@ -38,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Número"
+            android:textSize="20sp"
     />
 
 

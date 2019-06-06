@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "br.edu.ifsp.scl.firebaseui_sdm"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -32,15 +32,20 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    //FirebaseCore, FirebaseUi, FirebaseAuth
+
+    // FirebaseUI for Firebase Auth
+    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
+
+    // FirebaseUI for Firebase Auth (GitHub provider)
     implementation 'com.google.firebase:firebase-core:16.0.9'
-    implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
-    implementation 'com.google.firebase:firebase-auth:16.1.0'
+    implementation 'com.firebaseui:firebase-ui-auth-github:5.0.0'
+    implementation 'com.google.firebase:firebase-auth:17.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:4.0.0'
 
     // Required only if Facebook login support is required
     // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
-    implementation 'com.facebook.android:facebook-android-sdk:5.0.0'
-
+    //implementation 'com.facebook.android:facebook-android-sdk:5.0.0'
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
 
     // Required only if Twitter login support is required
     // Find the latest Twitter SDK releases here: https://goo.gl/E5wZvQ
@@ -50,5 +55,10 @@ dependencies {
 
     //Biblioteca assistente para solictar permissões ao usuário
     implementation 'ru.superjob:kotlin-permissions:1.0.3'
+
+    //Picasso
+    //implementation 'com.squareup.picasso:picasso:2.4.0'
+    implementation "com.squareup.picasso:picasso:2.71828"
+
 }
 apply plugin: 'com.google.gms.google-services'

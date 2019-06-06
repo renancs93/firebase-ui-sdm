@@ -13,13 +13,16 @@ import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import android.widget.Toast
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import com.kotlinpermissions.KotlinPermissions
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -29,7 +32,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         AuthUI.IdpConfig.EmailBuilder().build(),
         AuthUI.IdpConfig.PhoneBuilder().build(),
         AuthUI.IdpConfig.GoogleBuilder().build(),
-        //AuthUI.IdpConfig.GitHubBuilder().build(),
+        AuthUI.IdpConfig.GitHubBuilder().build(),
         AuthUI.IdpConfig.FacebookBuilder().build(),
         AuthUI.IdpConfig.TwitterBuilder().build()
     )
@@ -53,10 +56,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         permissions()
         navView.setNavigationItemSelectedListener(this)
 
-        verificaStatus()
+
 
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
 
     fun verificaStatus(){
         if(FirebaseAuth.getInstance().currentUser == null){
@@ -69,7 +75,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onStart() {
         super.onStart()
-
+        verificaStatus()
     }
 
     //Cria-se uma Intent do Firebase UI com as opçãos de Login
@@ -78,6 +84,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivityForResult(AuthUI.getInstance()
             .createSignInIntentBuilder()
             .setAvailableProviders(providers)
+            .setIsSmartLockEnabled(false)
             .setLogo(R.drawable.if_logo)//Inserido Logo Custom
             .build()
             , RC_SIGN_IN
@@ -87,6 +94,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     //Recebe as informações de status do Login para redirecionamento
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == RC_SIGN_IN){
             val response = IdpResponse.fromResultIntent(data);
@@ -115,7 +123,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Log.e("ERROR-SIGNIN", "Sign-in error: ", response.getError());
             }
         }
-        super.onActivityResult(requestCode, resultCode, data)
+
     }
 
     //Realiza o logoff do usuário
@@ -134,6 +142,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         private const val RC_SIGN_IN = 123
     }
 
+    private fun ImageView.loadPicasso(urlPoster: String) {
+        Picasso.get().load(urlPoster).into(this)
+    }
+
     private fun atualizaUI(){
 
         if (FirebaseAuth.getInstance().currentUser != null){
@@ -144,6 +156,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             txt_email.text = user?.email
             txt_nome.text = user?.displayName
             txt_numeroCel.text = user?.phoneNumber
+
+            if(user?.photoUrl != null) {
+                if (imageViewFoto!=null){
+                    imageViewFoto.loadPicasso(user.photoUrl.toString())
+                }
+
+            }
+
+//            Picasso.with(context)
+//                .load(url)
+//                .placeholder(R.drawable.placeholder) //optional
+//                .resize(imgWidth, imgHeight)         //optional
+//                .centerCrop()                        //optional
+//                .into(image);                        //Your image view object.
 
         }
 
